@@ -1,0 +1,28 @@
+/*
+ class pair  
+{  
+    long first, second;  
+    public pair(long first, long second)  
+    {  
+        this.first = first;  
+        this.second = second;  
+    }  
+} */
+
+class Compute 
+{
+    static pair getMinMax(long a[], long n)  
+    {
+        //Write your code here
+        ArrayList<Long> l=new ArrayList<>();
+        
+        for(long i:a)
+        {
+            l.add(i);
+        }
+        pair obj=new pair(Collections.min(l),Collections.max(l));
+        //System.out.print("min = "+Collections.min(l)+", max = "+Collections.max(l));
+        return obj;
+        
+    }
+}
