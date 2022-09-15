@@ -1,0 +1,15 @@
+	public:
+		vector<string>find_permutation(string S)
+		{
+		    // Code here there
+		    vector<string>v;
+		    sort(S.begin(),S.end());
+		    do
+		    {
+		        v.push_back(S);
+		        
+		    }while(next_permutation(S.begin(),S.end()));
+		    sort(v.begin(),v.end());
+		    return v;
+		   
+		}
