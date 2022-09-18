@@ -1,0 +1,24 @@
+public:
+    void segregateElements(int arr[],int n)
+    {
+        // Your code goes here
+       
+        int k=0;
+        vector<int>v(arr,arr+n);
+        for(int i=0;i<n;i++)
+        {
+            if(v[i]>=0)
+            {
+                arr[k]=v[i];
+                k++;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(v[i]<0)
+            {
+                arr[k]=v[i];
+                k++;
+            }
+        }
+    }
