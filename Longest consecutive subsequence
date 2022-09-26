@@ -1,0 +1,47 @@
+int findLongestConseqSubseq(int arr[], int N)
+    {
+      //Your code here
+      sort(arr,arr+N);
+      //set<int>s(arr,arr+N);
+      vector<int>v1(arr,arr+N);
+      v1.erase(std::unique(v1.begin(), v1.end()), v1.end());
+      vector<int>v;
+      int flag=0,max=0;
+      for(int i=0;i<v1.size()-1;i++)
+      {
+          if(v1[i+1]-v1[i]==1)
+          {
+              v.push_back(v1[i]);
+              if(i==v1.size()-2)
+              {
+                v.push_back(v1[i+1]);
+              }
+              
+              flag=1;
+          }
+          else
+          {
+              if(flag==1)
+              {
+                  v.push_back(v1[i]);
+                  flag=0;
+              }
+              if(max<v.size())
+              {
+                max=v.size();
+              }
+              v.clear();
+              
+          }
+          if(max<v.size())
+              {
+                max=v.size();
+              }
+          
+          
+      }
+      if(max==0)
+      max=1;
+      return max;
+      
+    }
