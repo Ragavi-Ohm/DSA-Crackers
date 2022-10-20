@@ -1,0 +1,30 @@
+//Brute force approach
+class Solution
+{
+    //Function to merge the arrays.
+    public static void merge(long arr1[], long arr2[], int n, int m) 
+    {
+        // code here 
+        ArrayList<Long> a=new ArrayList<>();
+        for(long i:arr1)
+        {
+            a.add(i);
+        }
+        for(long i:arr2)
+        {
+            a.add(i);
+        }
+        Collections.sort(a);
+        for(int i=0;i<n;i++)
+        {
+            arr1[i]=a.get(i);
+        }
+        for(int i=0;i<m;i++)
+        {
+            arr2[i]=a.get(n+i);
+        }
+        
+    }
+}
+
+
