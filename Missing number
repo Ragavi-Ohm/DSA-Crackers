@@ -1,0 +1,21 @@
+class Solution{
+  public:
+    int MissingNumber(vector<int>& array, int n) {
+        // Your code goes here
+        int res=-1;
+        /*sort(array.begin(),array.end());
+        for(int i=1;i<=n;i++)
+        {
+            //if(count(array.begin(),array.end(),i)==0)
+            if(find(array.begin(), array.end(), i) == array.end())
+            {
+                res=i;
+                break;
+            }
+        }*/
+        int t_sum=accumulate(array.begin(),array.end(),0);
+        int a_sum=n*(n+1)/2;
+        res=a_sum-t_sum;
+        return res;
+    }
+};
