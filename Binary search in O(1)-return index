@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    int binarysearch(int arr[], int n, int k) {
+        // code here
+        vector<int>v(arr,arr+n);
+        vector<int>::iterator it;
+        int ind=0;
+        if(binary_search(v.begin(),v.end(),k))
+        {
+            it=find(v.begin(),v.end(),k);
+            ind=it-v.begin();
+        }
+        else
+        {
+            ind=-1;
+        }
+        return ind;
+        
+    }
+};
