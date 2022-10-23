@@ -1,0 +1,18 @@
+class Solution{   
+public:
+    int getPairsCount(int arr[], int n, int k) {
+        // code here
+        int c=0,sum=0;
+        sort(arr,arr+n);
+        vector<int>v(arr,arr+n);
+        std::vector<int>::iterator ub, lb;
+        for(int i=0;i<n;i++)
+        {
+            
+            ub=std::upper_bound(v.begin()+i+1,v.end(),k-arr[i]);
+            lb=std::lower_bound(v.begin()+i+1,v.end(),k-arr[i]);
+            sum=sum+ub-lb;
+        }
+        return sum;
+    }
+};
