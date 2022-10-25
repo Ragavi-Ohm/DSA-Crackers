@@ -1,0 +1,31 @@
+long long trappingWater(int arr[], int n){
+        // code here
+        vector<int>v(arr,arr+n);
+        long long sum=0;
+        long long max1=0,max2=0;
+        int left[1000000];
+        int right[1000000];
+        left[0]=arr[0];
+        right[n-1]=arr[n-1];
+        for(int i=1;i<n;i++)
+        {
+            
+            //int max1=*max_element(v.begin(),v.begin()+i);
+            left[i]=max(left[i-1],arr[i]);
+        }
+        for(int j=n-2;j>=0;j--)
+        {
+            //int max2=*max_element(v.begin()+j+1,v.end());
+            right[j]=max(right[j+1],arr[j]);
+        }
+            
+          
+        for(int i=0;i<n-1;i++)
+        {
+            //cout<<"Min now is:"<<min(max1,max2);
+            if(min(left[i],right[i])>arr[i])
+            //sum=sum+min(max1,max2)-arr[i];
+            sum=sum+min(left[i],right[i])-arr[i];
+        }
+        return sum;
+    }
