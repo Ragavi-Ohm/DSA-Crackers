@@ -1,0 +1,30 @@
+bool find3Numbers(int A[], int n, int X)
+    {
+        //Your Code Here
+        sort(A,A+n);
+        vector<int>v(A,A+n);
+        int sum=0;
+        for(int i=0;i<n-3;i++)
+        {
+            int l=i+1;
+            sum=sum+A[i];
+            int r=n-1;
+            while(l<r)
+            {
+                //int diff=X-(sum+A[l]);
+                //if(count(v.begin()+l+1,v.end(),diff)>0)
+                if(A[l]+A[i]+A[r]==X)
+                {
+                    //cout<<"count is now found"<<l;
+                    return true;
+                    //exit();
+                }
+                else if(A[l]+A[i]+A[r]<X)
+                l=l+1;
+                else
+                r=r-1;
+            }
+            //sum=0;
+        }
+        return false;
+    }
