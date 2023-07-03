@@ -1,0 +1,27 @@
+#include <bits/stdc++.h> 
+vector<int> findCommonElements(vector<int> &a, vector<int> &b, vector<int> &c)
+{
+    // Write your code here
+    int i=0,j=0,k=0;
+    set<int>s;
+    while(i<a.size() and j<b.size() and k<c.size())
+    {
+      if (a[i] == b[j] and b[j] == c[k]) {
+        s.insert(a[i]);
+        i++;
+        j++;
+        k++;
+      } else if (a[i] < b[j])
+        i++;
+        else if(b[j]<c[k])
+        j++;
+        else
+        k++;
+        
+    }
+    vector<int>v;
+    for(auto it:s)
+    v.push_back(it);
+    return v;
+    
+}
