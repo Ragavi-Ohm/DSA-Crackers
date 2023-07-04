@@ -1,0 +1,22 @@
+int main() {
+    //Write your code here
+    int n;
+    int arr[n];
+    cin>>n;
+    int num;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int k;
+    cin>>k;
+    reverse(arr,arr+n);
+    reverse(arr,arr+(n-k));
+    reverse(arr+(n-k),arr+n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+
+    return 0;
+}
