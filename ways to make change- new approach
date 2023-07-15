@@ -1,0 +1,48 @@
+ long long int func(int ind,int amt,int coins[],int n,vector<vector<long long int>>&dp)
+    {
+        if(dp[ind][amt]!=-1)
+        return dp[ind][amt];
+        if(amt==0)
+        return 1;
+        if(ind==n)
+        {
+            if(amt==0)
+            return 1;
+            else
+            return 0;
+        }
+        
+        //pick
+        long long int p=0;
+        if(coins[ind]<=amt)
+        {
+            p=func(ind,amt-coins[ind],coins,n,dp);
+        }
+        long long int np=func(ind+1,amt,coins,n,dp);
+        return dp[ind][amt]=p+np;
+    }
+    long long int count(int coins[], int N, int sum) {
+
+        // code here.
+        vector<vector<long long int>>dp(N+1,vector<long long int>(sum+1,0));
+        for(int i=0;i<=N;i++)
+        {
+            dp[i][0]=1;
+        }
+        
+        for(int i=N-1;i>=0;i--)
+        {
+            for(int j=1;j<=sum;j++)
+            {
+                //pick
+                 long long int p=0;
+                 if(coins[i]<=j)
+                 {
+                    p=dp[i][j-coins[i]];
+                 }
+                 long long int np=dp[i+1][j];
+                 dp[i][j]=p+np;
+            }
+        }
+        return dp[0][sum];
+    }
